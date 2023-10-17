@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://dgre083dmjb4h"]
 
 [ext_resource type="Texture2D" uid="uid://decma1hvayctu" path="res://Tilesheet/colored-transparent.png" id="1_unpjr"]
-[ext_resource type="Script" path="res://Scenes/Player.cs" id="2_kwclp"]
-[ext_resource type="Script" path="res://Scenes/Map.cs" id="2_w82vh"]
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="2_kwclp"]
+[ext_resource type="Script" path="res://Scripts/Map.cs" id="2_w82vh"]
 [ext_resource type="PackedScene" uid="uid://b4j7rmjx1uksu" path="res://Scenes/TilemapMovement.tscn" id="3_oxldc"]
 [ext_resource type="PackedScene" uid="uid://r1pmjai42i5x" path="res://Scenes/TilemapInteraction.tscn" id="5_u3258"]
 [ext_resource type="Theme" uid="uid://cxd137qvqq0px" path="res://Theme.tres" id="6_qcd4u"]
@@ -1250,7 +1250,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.203922, 0.203922, 0.203922, 1)
+color = Color(0.203922, 0.203922, 0.203922, 0)
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/MarginContainer/Panel"]
 layout_mode = 1
