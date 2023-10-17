@@ -17,6 +17,15 @@ public partial class Map : TileMap
 
 			IInteractable interactable = interactableFactories[typeInteractable].Create();
 
+			// switch(typeInteractable){
+			// 	case 1:
+			// 		interactable = new PickableItem();
+			// 		break;
+			// 	case 2:
+			// 		interactable = new Door();
+			// 		break;
+			// }
+
 			map.Add(cell, interactable);
 			interactable.Setup(cell, this);
 		}
