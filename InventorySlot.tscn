@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://vgryrlyjgrxb"]
+
+[ext_resource type="Script" path="res://Scenes/InventorySlot.cs" id="1_pnjag"]
+[ext_resource type="Texture2D" uid="uid://decma1hvayctu" path="res://Tilesheet/colored-transparent.png" id="2_vc51e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x7l1"]
+atlas = ExtResource("2_vc51e")
+region = Rect2(494, 239, 14, 14)
+
+[node name="InventorySlot" type="Panel"]
+custom_minimum_size = Vector2(100, 100)
+script = ExtResource("1_pnjag")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.545098, 0.25098, 0.0941176, 1)
+
+[node name="Selector" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_4x7l1")

@@ -16,6 +16,8 @@ public partial class Player : Sprite2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if (GameState.isInMenu) return;
+
 		if (Input.IsKeyPressed(Key.A))
 		{
 			tilemapMovement.Move(Vector2I.Left);

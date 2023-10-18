@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgre083dmjb4h"]
+[gd_scene load_steps=13 format=3 uid="uid://dgre083dmjb4h"]
 
 [ext_resource type="Texture2D" uid="uid://decma1hvayctu" path="res://Tilesheet/colored-transparent.png" id="1_unpjr"]
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="2_kwclp"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://b4j7rmjx1uksu" path="res://Scenes/TilemapMovement.tscn" id="3_oxldc"]
 [ext_resource type="PackedScene" uid="uid://r1pmjai42i5x" path="res://Scenes/TilemapInteraction.tscn" id="5_u3258"]
 [ext_resource type="Theme" uid="uid://cxd137qvqq0px" path="res://Theme.tres" id="6_qcd4u"]
+[ext_resource type="Script" path="res://Scripts/Inventory.cs" id="6_r415i"]
+[ext_resource type="PackedScene" uid="uid://vgryrlyjgrxb" path="res://InventorySlot.tscn" id="8_fbkjx"]
+[ext_resource type="Script" path="res://Scenes/MenuManager.cs" id="9_wu8xe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n0t4e"]
 texture = ExtResource("1_unpjr")
@@ -1222,15 +1225,18 @@ zoom = Vector2(5, 5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Inventory" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("grid")]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("6_r415i")
+grid = NodePath("MarginContainer/Panel/MarginContainer/GridContainer")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Inventory"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1239,23 +1245,56 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("6_qcd4u")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Control/MarginContainer"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Inventory/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("6_qcd4u")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/Panel"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Inventory/MarginContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.203922, 0.203922, 0.203922, 0)
+color = Color(0.470588, 0.231373, 0.603922, 1)
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/MarginContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Inventory/MarginContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_qcd4u")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Inventory/MarginContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("6_qcd4u")
+columns = 4
+
+[node name="InventorySlot" parent="CanvasLayer/Inventory/MarginContainer/Panel/MarginContainer/GridContainer" instance=ExtResource("8_fbkjx")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="CanvasLayer/Inventory/MarginContainer/Panel/MarginContainer/GridContainer" instance=ExtResource("8_fbkjx")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="CanvasLayer/Inventory/MarginContainer/Panel/MarginContainer/GridContainer" instance=ExtResource("8_fbkjx")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="CanvasLayer/Inventory/MarginContainer/Panel/MarginContainer/GridContainer" instance=ExtResource("8_fbkjx")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="CanvasLayer/Inventory/MarginContainer/Panel/MarginContainer/GridContainer" instance=ExtResource("8_fbkjx")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="CanvasLayer/Inventory/MarginContainer/Panel/MarginContainer/GridContainer" instance=ExtResource("8_fbkjx")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="CanvasLayer/Inventory/MarginContainer/Panel/MarginContainer/GridContainer" instance=ExtResource("8_fbkjx")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="CanvasLayer/Inventory/MarginContainer/Panel/MarginContainer/GridContainer" instance=ExtResource("8_fbkjx")]
+layout_mode = 2
+
+[node name="MenuManager" type="Node2D" parent="."]
+script = ExtResource("9_wu8xe")
